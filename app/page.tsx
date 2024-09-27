@@ -1,3 +1,5 @@
-export default function Home() {
-  return <span>Hello, World!</span>;
+import Client from "./client";
+
+export default function Page() {
+  return <Client />;
 }
