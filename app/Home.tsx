@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Address, Blockfrost, Lucid, LucidEvolution, Network } from "@lucid-evolution/lucid";
 import { Wallet } from "@/types/cardano";
 
+import Dashboard from "@/components/Dashboard";
 import WalletConnectors from "@/components/WalletConnectors";
 
 export default function Home() {
@@ -75,8 +76,8 @@ export default function Home() {
       <div className="flex flex-col gap-2 overflow-hidden">
         {lucid ? (
           address ? (
-            // wallet connected: Show Address
-            <span className="font-mono">{address}</span>
+            // wallet connected: Show Dashboard
+            <Dashboard address={address} lucid={lucid} onError={handleError} setActionResult={setResult} />
           ) : (
             // no wallet connected yet: Show Wallet button List
             <WalletConnectors onConnectWallet={onConnectWallet} />
